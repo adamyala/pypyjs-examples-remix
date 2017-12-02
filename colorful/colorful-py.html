@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>pypyjs demo</title>
+</head>
+
+<body id="body">
+
+    <form name="show">
+        <input type="text" name="mouseXField" value="0" size="6">Mouse X Position
+        <br>
+        <input type="text" name="mouseYField" value="0" size="6">Mouse Y Position
+        <br>
+        <input type="text" name="windowWidth" value="0" size="6">Window Width
+        <br>
+        <input type="text" name="windowHeight" value="0" size="6">Window Height
+        <br>
+        <input type="text" name="colorg" value="0" size="6">Color
+        <br>
+        <input type="text" name="distToOrigin" value="0" size="6">Distance from Origin
+        <br>
+    </form>
+
+    <!-- Import the javascript files we need to run pypyjs -->
+    <!--<script src="colorful.js"></script>-->
+    <script src="../pypyjs-release/lib/Promise.min.js" type="text/javascript"></script>
+    <script src="../pypyjs-release/lib/FunctionPromise.js" type="text/javascript"></script>
+    <script src="../pypyjs-release/lib/pypyjs.js" type="text/javascript"></script>
+    <!-- Load jquery so we can use it below and in our python code -->
+    <!--<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
+    <script src="../jquery-1.12.4.min.js"></script>
+
+    <script>
+        $(function () {
+            // Let the user know pypyjs is loading up
+            console.log('loading pypyjs takes a while..');
+            // Load our python code and execute it
+            pypyjs.ready().then(function () {
+                $.get('colorful.py', function (data) {
+                    pypyjs.exec(data)
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
