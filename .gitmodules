@@ -1,0 +1,3 @@
+[submodule "pypyjs-release"]
+	path = pypyjs-release
+	url = git@github.com:pypyjs/pypyjs-release.git
